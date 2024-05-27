@@ -82,20 +82,20 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """ 
-*┗► What's Up, Earthling! ◄┛*
+*┗► Naber, Dünyalı! ◄┛*
 
-~~ *I am the Prince of All Saiyans, Vegeta!* ~~
+~~ *Ben Tüm Saiyanların Prensiyim, kumsal!* ~~
 
-~ *Prepare yourself for my commands! ~
-Click the help button below if you dare* [❗]({})
+~ *Kendinizi emirlerime hazırlayın ~
+komutlar için şağıdaki yardım düğmesine tıklayın* [❗]({})
 
-──『 *You better be ready to train hard!* 』──
+──『 *Sıkı antrenmana hazır olsan iyi olur* 』──
 """ 
 
 buttons = [
     [
         InlineKeyboardButton(
-                            text="☑ ADD VEGETA TO YOUR GROUP ☑",
+                            text="☑ beni grubuna ekle ☑",
                             url=f"t.me/{BOT_USERNAME}?startgroup=true"),
                     ],
                      [
@@ -103,28 +103,28 @@ buttons = [
                        InlineKeyboardButton(text="UPDATES",  url=f"https://t.me/{UPDATES_CHANNEL}"),
                     ],
                    [
-                       InlineKeyboardButton(text="NETWORK", url=f"https://t.me/nandhabots"),
-                       InlineKeyboardButton(text="LOGS", url=f"https://t.me/vegetalogs"),
+                       InlineKeyboardButton(text="NETWORK", url=f"https://t.me/masaldestek"),
+                       InlineKeyboardButton(text="LOGS", url=f"https://t.me/masaldestek"),
                 ],[ InlineKeyboardButton(text="COMMANDS HELP", callback_data="help_back"
          ),
     ],
 ] 
 
-HELP_STRINGS = """ *Hello There! Here you can get all of the help commands!
+HELP_STRINGS = """ *Selamlar! Burada tüm yardım komutlarını alabilirsiniz!
 - /donate - Steps to Donate Bot Owner 
 - /help (modulename): you also get the about the module.
 - /settings - in this work group only chat!
 Below Click the module you know about module commands!*
 """
 
-HELP_MSG = "Click the button below to get help manu in your pm."
+HELP_MSG = "Özel mesajınızda yardım kılavuzu almak için aşağıdaki düğmeye tıklayın."
 DONATE_STRING = """*don't need donate I'm free for everyone add your group's in @VegetaRobot this is my donate🙂*"""
-HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
-GROUPSTART_IMG= "https://telegra.ph/file/1cbafa58dda18528f9e0c.mp4"
+HELP_IMG= "https://graph.org/file/6c7f4daee043fd1f0347b.jpg"
+GROUPSTART_IMG= "https://graph.org/file/6c7f4daee043fd1f0347b.jpg"
 
-VEGETA_IMG = ( "https://telegra.ph//file/a47f16c936dbbd4165399.jpg",
-               "https://telegra.ph//file/5026650d5e3f0b83c6d29.jpg",
-               "https://telegra.ph/file/561fa547f3c4940c95ddf.jpg",)       
+VEGETA_IMG = ( "https://graph.org/file/6c7f4daee043fd1f0347b.jpg",
+               "https://graph.org/file/6c7f4daee043fd1f0347b.jpg",
+               "https://graph.org/file/6c7f4daee043fd1f0347b.jpg",)       
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -208,7 +208,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="⬅Back", callback_data="help_back")]]
+                        [[InlineKeyboardButton(text="<geri", callback_data="help_back")]]
                     ),
                 )
 
@@ -332,8 +332,8 @@ def help_button(update, context):
                 text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="⬅ ʙᴀᴄᴋ", callback_data="help_back"),
-                      InlineKeyboardButton(text="⬅ ʜᴏᴍᴇ", callback_data="vegeta_back")]]
+                    [[InlineKeyboardButton(text="⬅ Geri", callback_data="help_back"),
+                      InlineKeyboardButton(text="⬅ ana menü", callback_data="vegeta_back")]]
                 ),
             )
 
@@ -420,7 +420,7 @@ def get_help(update: Update, context: CallbackContext):
                 [
                     [ InlineKeyboardButton(text="ᴏᴘᴇɴ ɪɴ ᴘʀɪᴠᴀᴛᴇ", url=f"https://t.me/{BOT_USERNAME}?start=help"),
                       ],[  InlineKeyboardButton(
-                            text="ᴏᴘᴇɴ ʜᴇʀᴇ",
+                            text="dewam et",
                             callback_data="help_back"
                         )
                     ]
@@ -675,7 +675,7 @@ def main():
             LOGGER.warning(e.message)
 
 
-    start_handler = DisableAbleCommandHandler("start", start)
+    start_handler = DisableAbleCommandHandler("rangar", start)
 
     help_handler = DisableAbleCommandHandler("help", get_help)
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_.*")
